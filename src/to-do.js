@@ -31,13 +31,8 @@ class TODO extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>TODO APP</h1>
-				<ul>
-					{this.state.items.map(item => (
-						<li key={item.id}>{item.text}</li>
-					))}
-				</ul>
-
+				<h1>TODO Application</h1>
+				<TODOList todoItems={this.state.items} />
 				<form onSubmit={this.handleSubmit}>
 					<label htmlFor="id">Input Item</label>
 					<br />
@@ -52,3 +47,15 @@ class TODO extends React.Component {
 }
 
 export default TODO;
+
+class TODOList extends React.Component {
+	render() {
+		return (
+			<ul>
+				{this.props.todoItems.map(item => (
+					<li key={item.id}>{item.text}</li>
+				))}
+			</ul>
+		);
+	}
+}
